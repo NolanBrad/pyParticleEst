@@ -363,7 +363,7 @@ class SmoothTrajectory(object):
         else:
             raise ValueError('Unknown sampler: %s' % method)
 
-        find = numpy.arange(M, dtype=numpy.int)
+        find = numpy.arange(M, dtype=int)
 
         for cur_ind in reversed(range(len(pt) - 1)):
 
@@ -526,7 +526,7 @@ class SmoothTrajectory(object):
         ut = self.u
         yt = self.y
         tt = self.t
-        pind = numpy.arange(self.M, dtype=numpy.int)
+        pind = numpy.arange(self.M, dtype=int)
 
         straj = numpy.empty((T,), dtype=object)
         pt = self.traj[:T - 1]

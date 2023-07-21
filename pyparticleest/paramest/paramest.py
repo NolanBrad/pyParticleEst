@@ -233,7 +233,7 @@ class ParamEstimationPSAEM(Simulator):
         if (callback is None):
             callback = default_callback
 
-        ind = numpy.asarray(range(num_part), dtype=numpy.int)
+        ind = numpy.asarray(range(num_part), dtype=int)
         i = 0
         while (True):
             i += 1

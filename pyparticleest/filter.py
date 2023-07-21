@@ -355,8 +355,8 @@ class CSIRAS(SIR):
         ancestors[:-1] = sample(tmp, N - 1)
 
         #select ancestor for conditional trajectory
-        pind = numpy.arange(N, dtype=numpy.int)
-        find = numpy.zeros((N,), dtype=numpy.int)
+        pind = numpy.arange(N, dtype=int)
+        find = numpy.zeros((N,), dtype=int)
 
         wtrans = self.model.logp_xnext(particles=traj[cur_ind].pa.part,
                                        next_part=self.ctraj[cur_ind + 1].pa.part[find],
@@ -613,8 +613,8 @@ class CPFAS(CPF):
         ancestors[:-1] = sample(tmp, N - 1)
 
         #select ancestor for conditional trajectory
-        pind = numpy.arange(N, dtype=numpy.int)
-        find = numpy.zeros((N,), dtype=numpy.int)
+        pind = numpy.arange(N, dtype=int)
+        find = numpy.zeros((N,), dtype=int)
 
         wtrans = self.model.logp_xnext_singlestep(part=traj[cur_ind].pa.part[pind],
                                                   past_trajs=traj[:cur_ind],
@@ -738,8 +738,8 @@ class CPFYAS(CPFAS):
         ancestors[:-1] = sample(tmp, self.N - 1)
 
         #select ancestor for conditional trajectory
-        pind = numpy.arange(self.N, dtype=numpy.int)
-        find = numpy.zeros((self.N,), dtype=numpy.int)
+        pind = numpy.arange(self.N, dtype=int)
+        find = numpy.zeros((self.N,), dtype=int)
 
         wtrans = self.model.logp_xnext_singlestep(part=traj[cur_ind].pa.part[pind],
                                                   past_trajs=traj[:cur_ind],
