@@ -857,7 +857,7 @@ class ParticleTrajectory(object):
         else:
             self.uvec = numpy.empty(1, dtype=utype)
             self.yvec = numpy.empty(1, dtype=ytype)
-            self.tvec = numpy.empty(1, dtype=numpy.float)
+            self.tvec = numpy.empty(1, dtype=float)
             self.T = 0
         #TODO, this isn't correctly used in the code, assumed = 0
         assert(t0 == 0)
@@ -909,13 +909,13 @@ class ParticleTrajectory(object):
         if (self.ind + 1 >= self.T):
             ushape = numpy.asarray(self.uvec.shape)
             ushape[0] = self.ind + 1
-            self.uvec.resize(ushape)
+            self.uvec.resize(ushape, refcheck=False)
             yshape = numpy.asarray(self.yvec.shape)
             yshape[0] = self.ind + 2
-            self.yvec.resize(yshape)
+            self.yvec.resize(yshape, refcheck=False)
             tshape = numpy.asarray(self.tvec.shape)
             tshape[0] = self.ind + 2
-            self.tvec.resize(tshape)
+            self.tvec.resize(tshape, refcheck=False)
             self.T = self.ind + 2
 
         ind = self.ind
@@ -1116,7 +1116,7 @@ class ParticleApproximation(object):
         new_ind = sample(numpy.exp(tmp), N)
         new_part = model.copy_ind(self.part, new_ind)
 
-        self.w = numpy.log(numpy.ones(N, dtype=numpy.float) / N)
+        self.w = numpy.log(numpy.ones(N, dtype=float) / N)
         self.part = new_part
         self.num = N
         self.w_offset = 0.0
